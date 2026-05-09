@@ -5,9 +5,21 @@ fetch ("http://localhost:5678/api/works")
   
 
 
-   data.forEach(work => {
-console.log(work);
-   });
-    
+data.forEach(work => {
+  const figure = document.createElement("figure");
+
+  const img = document.createElement("img");
+  img.src = work.imageUrl;
+  img.alt = work.title;
+
+  const figcaption = document.createElement("figcaption");
+  figcaption.innerText = work.title;
+
+  figure.appendChild(img);
+  figure.appendChild(figcaption);
+
+  gallery.appendChild(figure);
+  console.log (work)
+});
   
 })
