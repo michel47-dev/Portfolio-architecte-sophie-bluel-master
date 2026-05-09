@@ -23,3 +23,17 @@ data.forEach(work => {
 });
   
 })
+
+fetch ("http://localhost:5678/api/categories")
+.then (response => response.json())
+.then (data => {
+    const filter = document.querySelector (".filter");
+    
+    data.forEach (categorie => {
+        const bouton = document.createElement ("button");
+       bouton.innerText = categorie.name;
+       filter.appendChild(bouton)
+        console.log (bouton)
+       
+    })
+})
