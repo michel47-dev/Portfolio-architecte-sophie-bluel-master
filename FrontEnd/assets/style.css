@@ -208,7 +208,7 @@ li:hover {
 .filter {
   display: flex;
   justify-content: space-evenly;
-  margin: 25px auto;
+  margin: 35px auto;
   width: 45%;
 }
 .filter button {
