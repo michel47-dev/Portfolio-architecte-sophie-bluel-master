@@ -1,86 +1,72 @@
-let works= [];
-
 async function recupereTravaux() {
-  const response = await fetch ("http://localhost:5678/api/works");
-  const data = await response.json ();
-  return data ;
-  
-}
-async function initialiserProjet() {
-  works = await recupereTravaux();
-  afficherProjets (works) ;
+  const response = await fetch("http://localhost:5678/api/works");
+  const data = await response.json();
+  return data;
 }
 
+async function recupereCategorie() {
+  const response = await fetch("http://localhost:5678/api/categories");
+  const data = await response.json();
+  return data;
+}
 
+function afficherProjets(works) {
+  const gallery = document.querySelector(".gallery");
 
+  gallery.innerHTML = "";
 
-function afficherProjets(projets){
- const gallery = document.querySelector (".gallery");
+  works.forEach(work => {
+    const figure = document.createElement("figure");
 
-   gallery.innerHTML = "";
+    const img = document.createElement("img");
+    img.src = work.imageUrl;
+    img.alt = work.title;
 
+    const figcaption = document.createElement("figcaption");
+    figcaption.innerText = work.title;
 
-projets.forEach(work => {
-  const figure = document.createElement("figure");
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
 
-  const img = document.createElement("img");
-  img.src = work.imageUrl;
-  img.alt = work.title;
+    gallery.appendChild(figure);
+  });
+}
+function afficherCategorie(categories, works) {
+  const filter = document.querySelector(".filter");
+const boutonTous = document.createElement("button");
+boutonTous.innerText = "Tous";
 
-  const figcaption = document.createElement("figcaption");
-  figcaption.innerText = work.title;
+filter.appendChild(boutonTous);
 
-  figure.appendChild(img);
-  figure.appendChild(figcaption);
-
-  gallery.appendChild(figure);
-
+boutonTous.addEventListener("click", () => {
+  afficherProjets(works);
 });
-}
+  categories.forEach(categorie => {
+    const bouton = document.createElement("button");
 
-async function recupereCategorie (){
-  const response= await fetch ("http://localhost:5678/api/categories");
-  const data = await response.json ();
-  return data ;
-}
-  
-async function initialiseCategorie() {
-   const listeCategorie = await recupereCategorie();
-  afficherCategorie (listeCategorie);
+    bouton.innerText = categorie.name;
 
-}
+    filter.appendChild(bouton);
 
+    bouton.addEventListener("click", () => {
+      console.log("j'ai cliqué", categorie.id);
 
-
-
-function afficherCategorie (categorie){
-   const filter = document.querySelector(".filter");
-
-    categorie.forEach((categorie) => {
-
-      const bouton = document.createElement("button");
-
-      bouton.innerText = categorie.name;
-
-      filter.appendChild(bouton);
-
-      bouton.addEventListener("click", () => {
-console.log("jai cliquer",categorie.id);
-
-const projetsFiltres = works.filter (work => {
-    return work.categoryId ===categorie.id;
-
-})
-afficherProjets(projetsFiltres);
+      const projetsFiltres = works.filter(work => {
+        return work.categoryId === categorie.id;
       });
 
+      afficherProjets(projetsFiltres);
     });
+  });
+}
 
-  };
-  
-initialiserProjet ();
-initialiseCategorie () ;
+async function initialiserProjet() {
+  const works = await recupereTravaux();
+  const categories = await recupereCategorie();
+
+  afficherProjets(works);
+  afficherCategorie(categories, works);
+}
 
 
-
-  
+initialiserProjet();
