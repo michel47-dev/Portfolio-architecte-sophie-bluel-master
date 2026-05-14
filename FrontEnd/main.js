@@ -31,6 +31,7 @@ function afficherProjets(works) {
     gallery.appendChild(figure);
   });
 }
+
 function afficherCategorie(categories, works) {
   const filter = document.querySelector(".filter");
 const boutonTous = document.createElement("button");
@@ -66,6 +67,7 @@ async function initialiserProjet() {
 
   afficherProjets(works);
   afficherCategorie(categories, works);
+  console.log(works, categories)
 }
 
 
