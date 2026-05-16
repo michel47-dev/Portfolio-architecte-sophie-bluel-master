@@ -1,3 +1,27 @@
+const token = localStorage.getItem("token");
+
+if (token){
+  const loginLink=document.getElementById ("login-link");
+  loginLink.innerText = "logout";
+
+  
+    const editionMode =document.querySelector(".mode-edition");
+    editionMode.style.display = "flex";
+
+ 
+  const filter=document.querySelector(".filter");
+  filter.style.display = "none";
+    
+  loginLink.addEventListener("click", function (event){
+    event.preventDefault();
+
+    localStorage.removeItem("token");
+    window.location.href = "index.html";
+
+  });
+
+}
+
 async function recupereTravaux() {
   const response = await fetch("http://localhost:5678/api/works");
   const data = await response.json();
