@@ -8,6 +8,9 @@ if (token){
     const editionMode =document.querySelector(".mode-edition");
     editionMode.style.display = "flex";
 
+    const modifier =document.querySelector(".modifier");
+    modifier.style.display = "flex";
+
  
   const filter=document.querySelector(".filter");
   filter.style.display = "none";
@@ -90,9 +93,49 @@ async function initialiserProjet() {
   const categories = await recupereCategorie();
 
   afficherProjets(works);
+  afficherProjetsModal(works);
   afficherCategorie(categories, works);
   console.log(works, categories)
 }
 
 
 initialiserProjet();
+
+
+const modifier =document.querySelector(".modifier");
+const modal =document.querySelector (".modal");
+const modalClose = document.querySelector (".close-modal");
+const modalContent = document.querySelector (".modal-content");
+
+modifier.addEventListener("click", function(){
+  modal.style.display = "flex";
+
+})
+modalClose.addEventListener("click", function(){
+  modal.style.display = "none";
+});
+
+modal.addEventListener("click",function(){
+  modal.style.display = "none";
+});
+
+modalContent.addEventListener("click", function(){
+  event.stopPropagation();
+});
+
+function afficherProjetsModal (projets) {
+  const modalGallery = document.querySelector(".modal-gallery");
+
+  modalGallery.innerHTML= "";
+
+  projets.forEach(work =>{
+    const img =document.createElement("img");
+
+    img.src = work.imageUrl;
+    img.alt = work.title;
+    modalGallery.appendChild(img)
+  });
+}
+
+
+
