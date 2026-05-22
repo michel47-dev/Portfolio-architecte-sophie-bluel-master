@@ -130,12 +130,56 @@ function afficherProjetsModal (projets) {
 
   projets.forEach(work =>{
     const img =document.createElement("img");
+    const modalItem =document.createElement("div");
+    modalItem.classList.add("modal-item");
+    modalItem.dataset.id = work.id;
+
+     const corbeille = document.createElement("i");
+    corbeille.classList.add("fa-solid", "fa-trash-can");
+
+    corbeille.addEventListener("click", function(){
+    console.log(work.id);
+    
+      modalItem.remove();
+    })
 
     img.src = work.imageUrl;
     img.alt = work.title;
-    modalGallery.appendChild(img)
-  });
+    modalItem.appendChild(img);
+     modalItem.appendChild(corbeille);
+    modalGallery.appendChild(modalItem);
+
+   });
 }
+const btnAjoutPhoto=document.querySelector(".add-photo");
+const ajoutPhoto=document.querySelector(".ajout-photo");
+const vueGallery=document.querySelector(".vue-gallery");
+
+
+btnAjoutPhoto.addEventListener("click", function(){
+  vueGallery.style.display = "none";
+  ajoutPhoto.style.display= "flex";
+  
+
+
+  console.log(btnAjoutPhoto);
+console.log(ajoutPhoto);
+
+  
+});
+
+const retourModal = document.querySelector(".retour-modal");
+
+retourModal.addEventListener("click", function(){
+  vueGallery.style.display = "block";
+  ajoutPhoto.style.display = "none";
+})
+
+
+
+
+
+
 
 
 
