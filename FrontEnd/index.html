@@ -91,25 +91,30 @@
 		<div class="modal-content">
 			<button class="close-modal">&times;</button>
 			<div class="vue-gallery">
-			<h3> Galerie photo</h3>
-			<div class="modal-gallery"></div>
-			<hr>
-			<button class="add-photo">Ajouter une photo</button>
+				<h3> Galerie photo</h3>
+				<div class="modal-gallery"></div>
+				<hr>
+				<button class="add-photo">Ajouter une photo</button>
 			</div>
 			<div class="ajout-photo">
 				<button class="retour-modal">
-					 <i class="fa-solid fa-arrow-left"></i>
+					<i class="fa-solid fa-arrow-left"></i>
 				</button>
 				<h3>Ajout photo</h3>
 				<form>
-					<label for="image">Image</label>
-					<input type ="file" id="image">
+					<div class="upload-photo">
+						<i class="fa-regular fa-image"></i>
+						<label for="image">+ Ajouter photo</label>
+						<input type="file" id="image">
+						<img class="preview-photo" src="" alt="">
+						<p>jpg, png : 4mo max</p>
+					</div>
 					<label for="title">Titre</label>
 					<input type="text" id="title">
 					<label for="category">Catégorie</label>
 					<select id="category"></select>
 					<hr>
-					<button type="submit">Valider</button>
+					<button class="btn-valider" type="submit">Valider</button>
 				</form>
 			</div>
 		</div>
