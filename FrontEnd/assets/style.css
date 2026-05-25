@@ -91,6 +91,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -105,18 +106,24 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
   background-color: #fffef8;
+}
+.hidden-title {
+  display: none;
 }
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -124,10 +131,12 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 /** end reset css**/
 body {
   max-width: 1140px;
@@ -135,6 +144,7 @@ body {
   font-family: "Work Sans";
   font-size: 14px;
 }
+
 /*partit edition*/
 .mode-edition {
   display: none;
@@ -154,6 +164,7 @@ header {
   justify-content: space-between;
   margin: 50px 0;
 }
+
 section {
   margin: 50px 0;
 }
@@ -179,30 +190,36 @@ h2 {
   font-size: 30px;
   color: #1d6154;
 }
+
 nav ul {
   display: flex;
   align-items: center;
   list-style-type: none;
 }
+
 nav li {
-  padding: 0 30px;
+  padding: 0 20px;
   font-size: 1.2em;
   cursor: pointer;
 }
+
+nav li :hover {
+  color: #b1663c;
+}
+
 nav img {
   width: 23px;
 }
 
-/*li:hover {
-  color: #b1663c;
-}*/
 #introduction {
   display: flex;
   align-items: center;
 }
+
 #introduction figure {
   flex: 1;
 }
+
 #introduction img {
   display: block;
   margin: auto;
@@ -212,6 +229,7 @@ nav img {
 #introduction article {
   flex: 1;
 }
+
 #introduction h2 {
   margin-bottom: 1em;
 }
@@ -219,10 +237,12 @@ nav img {
 #introduction p {
   margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
   text-align: center;
   margin-bottom: 1em;
 }
+
 /*icone et modifier*/
 .portfolio-title {
   display: flex;
@@ -230,13 +250,30 @@ nav img {
   align-items: center;
   gap: 20px;
 }
+
 .modifier {
   display: none;
   align-items: center;
   padding-bottom: 27px;
   gap: 10px;
+  cursor: pointer;
 }
+
+.modifier:hover {
+  color: #b1663c;
+}
+
 /*fin icone et modifier*/
+.edition-modal {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.paragraphe:hover {
+  transform: scale(1.1);
+}
 
 /*****partie filtre*****/
 .filter {
@@ -245,6 +282,7 @@ nav img {
   margin: 35px auto;
   width: 45%;
 }
+
 .filter button {
   background-color: #fffef8;
   border: 1px solid #1d6154;
@@ -253,11 +291,13 @@ nav img {
   padding: 5px 10px;
   font-family: "Syne";
 }
+
 .filter button:hover {
   background-color: #1d6154;
   color: white;
   cursor: pointer;
 }
+
 /***fin partie filtre***/
 
 .gallery {
@@ -270,17 +310,24 @@ nav img {
 
 .gallery img {
   width: 100%;
+  height: 490px;
+  object-fit: cover;
+  display: block;
 }
+
 #contact {
   width: 50%;
   margin: auto;
 }
+
 #contact > * {
   text-align: center;
 }
+
 #contact h2 {
   margin-bottom: 20px;
 }
+
 #contact form {
   text-align: left;
   margin-top: 30px;
@@ -294,9 +341,11 @@ nav img {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact label {
   margin: 2em 0 1em 0;
 }
+
 #contact textarea {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -319,6 +368,7 @@ footer nav ul {
   margin: 2em;
   background-color: #ffff;
 }
+
 a {
   text-decoration: none;
 }
@@ -340,6 +390,7 @@ a:visited {
   justify-content: center;
   align-items: center;
 }
+
 .modal-content {
   background-color: #fff;
   position: relative;
@@ -350,6 +401,7 @@ a:visited {
   border-radius: 10px;
   box-sizing: border-box;
 }
+
 .modal-gallery {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -361,6 +413,7 @@ a:visited {
 
 .modal-gallery img {
   width: 100%;
+  height: 102px;
   object-fit: cover;
   display: block;
 }
@@ -372,6 +425,7 @@ a:visited {
   font-weight: 400;
   padding-bottom: 50px;
 }
+
 .add-photo {
   display: block;
   margin: 80px auto 0 auto;
@@ -387,10 +441,12 @@ a:visited {
 
   cursor: pointer;
 }
+
 .modal-content hr {
   margin-top: 50px;
   width: 90%;
 }
+
 .close-modal {
   position: absolute;
   top: 20px;
@@ -401,12 +457,15 @@ a:visited {
   font-size: 25px;
   transition: transform 0.2s ease;
 }
+
 .close-modal:hover {
   transform: scale(1.2);
 }
+
 .modal-item {
   position: relative;
 }
+
 .modal-item i {
   position: absolute;
   top: 6px;
@@ -417,19 +476,26 @@ a:visited {
   border-radius: 3px;
   font-size: 10px;
 }
+
 #login-link {
   color: black;
   text-decoration: none;
-  padding: 0 10px;
-  font-size: 1.2em;
+
+  font-size: 17px;
   cursor: pointer;
 }
+
+#login-link:hover {
+  color: #b1663c;
+}
+
 .ajout-photo {
   display: none;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
+
 .retour-modal {
   position: absolute;
   left: -50px;
@@ -440,6 +506,7 @@ a:visited {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 .retour-modal:hover {
   transform: scale(1.2);
 }
@@ -460,6 +527,7 @@ a:visited {
   align-items: center;
   position: relative;
 }
+
 .retour-modal {
   position: absolute;
   left: -50px;
@@ -470,6 +538,7 @@ a:visited {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 .retour-modal:hover {
   transform: scale(1.2);
 }
@@ -499,6 +568,7 @@ a:visited {
 .upload-photo input {
   display: none;
 }
+
 .upload-photo label {
   background-color: #cbd6dc;
   color: #306685;
@@ -507,30 +577,36 @@ a:visited {
   cursor: pointer;
   font-weight: 500;
 }
+
 .upload-photo i {
   font-size: 60px;
   color: #b9c5cc;
 }
+
 .upload-photo p {
   font-size: 10px;
   color: #444444;
 }
+
 .preview-photo {
   display: none;
   width: 130px;
   height: 100%;
   object-fit: cover;
 }
+
 .ajout-photo form {
   width: 100%;
   max-width: 420px;
 }
+
 .ajout-photo input[type="text"],
 .ajout-photo select {
   height: 40px;
   width: 100%;
   box-sizing: border-box;
 }
+
 .btn-valider {
   display: block;
   margin: 80px auto 0 auto;

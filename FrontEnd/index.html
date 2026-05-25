@@ -17,7 +17,10 @@
 
 <body>
 	<div class="mode-edition">
+		<div class="edition-modal">
+		<i class="fa-regular fa-pen-to-square"></i>
 		<p class="paragraphe">Mode édition</p>
+		</div>
 	</div>
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
@@ -25,18 +28,20 @@
 			<ul>
 				<li><a href="#portfolio"> projets </a></li>
 				<li><a href="#contact"> contact </a></li>
-				<a id="login-link" href="login.html">login</a>
-				<a href="https://www.instagram.com/" target="_blank">
-					<li><img src="./assets/icons/instagram.png" alt="Instagram">
+				<li><a id="login-link" href="login.html">login</a></li>
+				<li><a href="https://www.instagram.com/" target="_blank">
+					<img src="./assets/icons/instagram.png" alt="Instagram">
 				</a>
 				</li>
 			</ul>
 		</nav>
 	</header>
 	<main>
+		
 		<section id="introduction">
+			<h2 class="hidden-title">Introduction</h2>
 			<figure>
-				<img src="./assets/images/sophie-bluel.png" alt="">
+				<img src="./assets/images/sophie-bluel.png" alt="Portrait de Sophie Bluel">
 			</figure>
 			<article>
 				<h2>Designer d'espace</h2>
@@ -106,7 +111,7 @@
 						<i class="fa-regular fa-image"></i>
 						<label for="image">+ Ajouter photo</label>
 						<input type="file" id="image">
-						<img class="preview-photo" src="" alt="">
+						
 						<p>jpg, png : 4mo max</p>
 					</div>
 					<label for="title">Titre</label>

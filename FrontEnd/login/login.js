@@ -1,6 +1,12 @@
+const token = localStorage.getItem("token");
+
+if (token) {
+  window.location.href = "index.html";
+}
+
 const loginForm = document.getElementById("login-form");
 
-loginForm.addEventListener("submit", async function(event) {
+loginForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   const email = document.getElementById("email").value;
@@ -29,11 +35,12 @@ loginForm.addEventListener("submit", async function(event) {
 
   } else {
 
-    const erreurConnection = document.getElementById ("error-message");
+    const erreurConnection = document.getElementById("error-message");
     erreurConnection.innerText = "Email ou mot de passe incorrect";
+    erreurConnection.style.display = "flex";
 
   }
 
 });
-  
+
 
